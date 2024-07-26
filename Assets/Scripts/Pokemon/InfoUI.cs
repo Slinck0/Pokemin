@@ -24,13 +24,10 @@ public class InfoUI : MonoBehaviour
     private float duration = .175f;
     public IPurchasable toDisplay;
     public bool Opened = false;
-    public Button AbilityButton2;
-    private Swablu swablu;
+
     private void Start()
     {
         Instance = this;
-        AbilityButton2.onClick.AddListener(OnButtonPressed);
-        swablu = new Swablu();
     }
 
     //public void OpenOrCloseUI()
@@ -72,18 +69,6 @@ public class InfoUI : MonoBehaviour
         StartCoroutine(MoveImageToLeft());
         Opened = false;
 
-    }
-
-    public void OnButtonPressed()
-    {
-        if (Opened)
-        {
-            swablu.Abilities[0].OnUse();
-        }
-        else
-        {
-            OpenUI(swablu);
-        }
     }
 
     public IEnumerator MoveImageToRight()
